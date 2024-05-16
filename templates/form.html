@@ -1,0 +1,467 @@
+<html lang="en">  
+ <head> 
+   <meta charset="UTF-8">
+   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""/> 
+   <title> Home | CardioTech </title> 
+   <link type="text/css" rel="stylesheet" href="https://cardiotech1.odoo.com/web/assets/1/e2780af/web.assets_frontend.min.css"/>
+        <script id="web.layout.odooscript" type="text/javascript">
+            var odoo = {
+                csrf_token: "6862c02a849fd2b6d23e2928731278081b47a2f4o1746105540",
+                debug: "",
+            };
+        </script>
+        <script type="text/javascript">
+            odoo.__session_info__ = {"is_admin": false, "is_system": false, "is_website_user": true, "user_id": false, "is_frontend": true, "profile_session": null, "profile_collectors": null, "profile_params": null, "show_effect": true, "currencies": {"20": {"symbol": "\u20b9", "position": "before", "digits": [69, 2]}}, "bundle_params": {"lang": "en_US", "website_id": 1}, "test_mode": false, "translationURL": "/website/translations", "cache_hashes": {"translations": "f9db36c744ac2badad53c5972a98978ed5aec512"}, "geoip_country_code": "IN", "geoip_phone_code": 91, "lang_url_code": "en_IN"};
+            if (!/(^|;\s)tz=/.test(document.cookie)) {
+                const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                document.cookie = `tz=${userTZ}; path=/`;
+            }
+        </script>
+         <script type="text/javascript" defer="defer" src="https://cardiotech1.odoo.com/web/assets/1/24a4408/web.assets_frontend_minimal.min.js" onerror="__odooAssetError=1"></script>
+       
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">  
+ <!--  <link rel="stylesheet" href="styles.css">-->  
+   <title>Heart Disease Prediction</title>
+ 
+ </head>  
+ <style>  
+   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');  
+ *{  
+   margin: 0;  
+   padding: 0;  
+   box-sizing: border-box;  
+   font-family: 'Montserrat', sans-serif;  
+   color:black;  
+ }  
+ body{  
+   background: url("https://static.vecteezy.com/system/resources/previews/022/906/616/non_2x/blue-heart-shaped-as-computer-circuit-board-postproducted-generative-ai-digital-illustration-free-photo.jpg") no-repeat top center;  
+   padding: 0 10px;  
+   background-size: cover;  
+ }  
+ .wrapper{  
+   max-width: 600px;  
+   width: 100%;  
+   background: rgba(0, 0, 0, 0.7);  
+   margin: 20px auto;  
+   padding: 30px;  
+   box-shadow: 1px 1px 2px rgba(0, 0, 0, 1.25);  
+ }  
+ .wrapper .title{  
+   font-size: 24px;  
+   font-weight: 700;  
+   margin-bottom: 25px;  
+   color: #fec107;  
+   text-transform: uppercase;  
+   text-align: center;  
+ }  
+ .wrapper .form{  
+   width: 100%;  
+ }  
+ .wrapper .form .input_field{  
+   margin-bottom: 15px;  
+   display: flex;  
+   align-items: center;  
+ }  
+ .wrapper .form .input_field label{  
+   width:100px;  
+   font: bold;  
+   color: wheat;  
+   margin-right: 10px;  
+   font-size: 14px;  
+ }  
+ .wrapper .form .input_field input{  
+   width: 250px;
+   display: flex;  
+ }  
+ .wrapper .form .input_field .textarea{  
+   resize: flex;  
+   height: 250px;  
+   width: 500px;  
+ }  
+ </style>  
+ <body> 
+  <div>
+  <div id="wrapwrap" class="   ">
+    <header id="top" data-anchor="true" data-name="Header" data-extra-items-toggle-aria-label="Extra items button">
+        
+    <div class="container py-3 px-0">
+<nav data-name="Navbar" aria-label="Main" class="navbar navbar-expand-lg navbar-light o_colored_level o_cc o_full_border d-none d-lg-block rounded-pill py-2 px-3 shadow-sm ">
+
+
+    <div id="o_main_nav" class="o_main_nav container">
+        
+<a data-name="Navbar Logo" href="/" class="navbar-brand logo me-4">
+
+<span role="img" aria-label="Logo of CardioTech" title="CardioTech"><img src="https://cardiotech1.odoo.com/web/image/website/1/logo/CardioTech?unique=af99418" class="img img-fluid" width="95" height="40" alt="CardioTech" loading="lazy"/></span>
+</a>
+
+        
+<ul role="menu" id="top_menu" class="nav navbar-nav top_menu o_menu_loading me-auto nav-pills">
+
+
+            
+<li role="presentation" class="nav-item">
+<a role="menuitem" href="/" class="nav-link ">
+<span>Home</span>
+</a>
+</li>
+<li role="presentation" class="nav-item">
+<a role="menuitem" href="/f" class="nav-link active">
+<span>Predict</span>
+</a>    
+</ul>
+        
+        <ul class="navbar-nav align-items-center gap-1 flex-wrap flex-shrink-0 justify-content-end ps-3">
+            
+<li class="">
+    <div class="modal fade" id="o_search_modal" aria-hidden="true" tabindex="-1">
+        <div class="modal-dialog modal-lg pt-5">
+            <div class="modal-content mt-5">
+<form method="get" class="o_searchbar_form o_wait_lazy_js s_searchbar_input " action="/website/search" data-snippet="s_searchbar_input">
+<div role="search" class="input-group input-group-lg">
+<input type="search" name="search" class="search-query form-control oe_search_box border-0 bg-light border border-end-0 p-3" placeholder="Search..." data-search-type="all" data-limit="5" data-display-image="true" data-display-description="true" data-display-extra-link="true" data-display-detail="true" data-order-by="name asc"/>
+<button type="submit" aria-label="Search" title="Search" class="btn oe_search_button border border-start-0 px-4 bg-o-color-4">
+<i class="oi oi-search"></i>
+</button>
+</div>
+
+<input name="order" type="hidden" class="o_search_order_by" value="name asc"/>
+
+
+</form>
+            </div>
+        </div>
+    </div>
+    <a data-bs-target="#o_search_modal" data-bs-toggle="modal" role="button" title="Search" href="#" class="btn rounded-circle p-1 lh-1 o_navlink_background text-reset o_not_editable">
+        <i class="oi oi-search fa-stack lh-lg"></i>
+    </a>
+</li>
+            
+<li class="">
+    <div data-name="Text" class="s_text_block ">
+        <a href="tel:+1 (650) 555-0111" class="nav-link o_nav-link_secondary p-2">
+            <i class="fa fa-1x fa-fw fa-phone me-1"></i>
+            <span class="o_force_ltr"><small>+1 (650) 555-0111</small></span>
+        </a>
+    </div>
+</li>
+            
+            
+<li data-name="Language Selector" class="o_header_language_selector ">
+
+
+</li>
+            
+<li class=" o_no_autohide_item">
+    <a href="/web/login" class="btn btn-outline-secondary rounded-circle px-3">Sign in</a>
+</li>
+            
+
+
+            
+<li class="">
+<div class="oe_structure oe_structure_solo ">
+    <section class="oe_unremovable oe_unmovable s_text_block" data-snippet="s_text_block" data-name="Text">
+        <div class="container">
+            <a href="/contactus" class="oe_unremovable btn btn-primary btn_cta w-100 w-100 w-100 w-100 w-100 w-100 w-100"><span data-o-link-zws="start" contenteditable="false">​</span>Contact Us</a>
+        </div>
+    </section>
+</div>
+</li>
+        </ul>
+    </div>
+
+</nav>
+<nav data-name="Navbar" aria-label="Mobile" class="navbar  navbar-light o_colored_level o_cc o_header_mobile d-block d-lg-none shadow-sm o_full_border mx-1 rounded-pill">
+
+
+<div class="o_main_nav container flex-wrap justify-content-between">
+
+<a data-name="Navbar Logo" href="/" class="navbar-brand logo ">
+
+<span role="img" aria-label="Logo of CardioTech" title="CardioTech"><img src="https://cardiotech1.odoo.com/web/image/website/1/logo/CardioTech?unique=af99418" class="img img-fluid" width="95" height="40" alt="CardioTech" loading="lazy"/></span>
+</a>
+
+<ul class="o_header_mobile_buttons_wrap navbar-nav flex-row align-items-center gap-2 mb-0">
+    <li>
+        <button class="nav-link btn me-auto p-2 o_not_editable" type="button" data-bs-toggle="offcanvas" data-bs-target="#top_menu_collapse_mobile" aria-controls="top_menu_collapse_mobile" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </li>
+</ul>
+<div id="top_menu_collapse_mobile" class="offcanvas offcanvas-end o_navbar_mobile">
+    <div class="offcanvas-header justify-content-end o_not_editable">
+        <button type="button" class="nav-link btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column justify-content-between h-100 w-100">
+        <ul class="navbar-nav">
+            
+<li class="">
+<form method="get" class="o_searchbar_form o_wait_lazy_js s_searchbar_input " action="/website/search" data-snippet="s_searchbar_input">
+<div role="search" class="input-group mb-3">
+<input type="search" name="search" class="search-query form-control oe_search_box border-0 bg-light rounded-start-pill text-bg-light ps-3" placeholder="Search..." data-search-type="all" data-limit="0" data-display-image="true" data-display-description="true" data-display-extra-link="true" data-display-detail="true" data-order-by="name asc"/>
+<button type="submit" aria-label="Search" title="Search" class="btn oe_search_button rounded-end-pill bg-o-color-3 pe-3">
+<i class="oi oi-search"></i>
+</button>
+</div>
+
+<input name="order" type="hidden" class="o_search_order_by" value="name asc"/>
+
+
+</form>
+</li>
+            
+<ul role="menu" class="nav navbar-nav top_menu   nav-pills">
+
+
+                
+<li role="presentation" class="nav-item">
+<a role="menuitem" href="/" class="nav-link active">
+<span>Home</span>
+</a>
+</li>
+<li role="presentation" class="nav-item">
+<a role="menuitem" href="/f" class="nav-link ">
+<span>Predict</span>
+</a>
+</li>
+
+            
+</ul>
+            
+<li class="">
+    <div data-name="Text" class="s_text_block mt-2 border-top pt-2 o_border_contrast">
+        <a href="tel:+1 (650) 555-0111" class="nav-link o_nav-link_secondary p-2">
+            <i class="fa fa-1x fa-fw fa-phone me-1"></i>
+            <span class="o_force_ltr"><small>+1 (650) 555-0111</small></span>
+        </a>
+    </div>
+</li>
+            
+        </ul>
+        <ul class="navbar-nav gap-2 mt-3 w-100">
+            
+<li class=" o_no_autohide_item">
+    <a href="login.html" class="btn btn-outline-secondary w-100">Sign in</a>
+</li>
+            
+
+
+            
+<li data-name="Language Selector" class="o_header_language_selector ">
+
+
+</li>
+            
+<li class="">
+<div class="oe_structure oe_structure_solo ">
+    <section class="oe_unremovable oe_unmovable s_text_block" data-snippet="s_text_block" data-name="Text">
+        <div class="container">
+            <a href="/contactus" class="oe_unremovable btn btn-primary btn_cta w-100 w-100 w-100 w-100 w-100 w-100 w-100 w-100"><span data-o-link-zws="start" contenteditable="false">​</span>Contact Us</a>
+        </div>
+    </section>
+</div>
+</li>
+        </ul>
+    </div>
+</div>
+</div>
+
+</nav>
+</div>
+
+</header> 
+ <form action="{{ url_for('predict')}}" method="post">  
+   <div class="wrapper">  
+     <div class="title">  
+       <h1 style="color: white;">Heart Disease Prediction</h1>  
+     </div>  
+     <div class="form">  
+       <div class="input_field">  
+         <textarea style="color: white; background: rgba(0, 0, 0, 0.3);" class="textarea" readonly>  
+ It's a clean, easy to understand set of data. However, the meaning of some of the column headers are not obvious. Here's what they mean,  
+ Age: displays the age of the individual.  
+ Sex: displays the gender of the individual using the following format :  
+ 1 = male  
+ 0 = female  
+ Chest-pain type: displays the type of chest-pain experienced by the individual using the following format :  
+ 0 = typical angina  
+ 1 = atypical angina  
+ 2 = non — anginal pain  
+ 3 = asymptotic  
+ Resting Blood Pressure: displays the resting blood pressure value of an individual in mmHg (unit)  
+ Serum Cholestrol: displays the serum cholesterol in mg/dl (unit)  
+ Fasting Blood Sugar: compares the fasting blood sugar value of an individual with 120mg/dl.  
+ If fasting blood sugar > 120mg/dl then : 1 (true) else : 0 (false)  
+ Resting ECG : displays resting electrocardiographic results  
+ 0 = normal  
+ 1 = having ST-T wave abnormality  
+ 2 = left ventricular hyperthrophy  
+ Max heart rate achieved : displays the max heart rate achieved by an individual.  
+ Exercise induced angina :  
+ 1 = yes  
+ 0 = no  
+ ST depression induced by exercise relative to rest: displays the value which is an integer or float.  
+ Peak exercise ST segment :  
+ 1 = upsloping  
+ 2 = flat  
+ 3 = downsloping  
+ Number of major vessels (0–3) colored by flourosopy : displays the value as integer or float.  
+ Thal : displays the thalassemia :  
+ 0 = normal  
+ 1 = fixed defect  
+ 2 = reversible defect  
+ Diagnosis of heart disease : Displays whether the individual is suffering from heart disease or not :  
+ 0 = absence  
+ 1, 2, 3, 4 = present.  
+           </textarea>  
+        </div>  
+       <div class="input_field">  
+        <label for="age">Age</label>
+        <input type="text" id="age" name="age" placeholder="Your age.."><br>
+       </div>
+
+       <div class="input_field">
+        <label for="sex">Sex</label>
+        <select id="sex" name="sex">
+          <option selected>----select option----</option>
+          <option value="1">Male</option>
+          <option value="0">Female</option>
+        </select><br>
+       </div>
+
+       <div class="input_field">
+        <label for="cp">Chest Pain Type</label>
+        <select id="cp" name="cp">
+          <option selected>----select option----</option>
+          <option value="0">Typical Angina</option>
+          <option value="1">Atypical Angina</option>
+          <option value="2">Non-anginal Pain</option>
+          <option value="3">Asymtomatic</option>
+        </select><br>
+       </div>
+
+       <div class="input_field">
+        <label for="trestbps">Resting Blood Pressure</label>
+        <input type="text" id="trestbps" name="trestbps" placeholder="A number in range [94-200] mmHg"><br>
+       </div>
+
+       <div class="input_field">
+        <label for="chol">Serum Cholesterol</label>
+        <input type="text" id="chol" name="chol" placeholder="A number in range [126-564] mg/dl"><br>
+       </div>
+
+       <div class="input_field">
+        <label for="fbs">Fasting Blood Sugar</label>
+        <select id="fbs" name="fbs">
+          <option selected>----select option----</option>
+          <option value="1">Greater than 120 mg/dl</option>
+          <option value="0">Less than 120 mg/dl</option>
+        </select><br>
+       </div>
+
+       <div class="input_field">
+        <label for="restecg">Resting ECG Results</label>
+        <select id="restecg" name="restecg">
+          <option selected>----select option----</option>
+          <option value="0">Normal</option>
+          <option value="1">Having ST-T wave abnormality</option>
+          <option value="2">Probable or definite left ventricular
+            hypertrophy</option>
+        </select><br>
+       </div>
+
+       <div class="input_field">
+        <label for="thalach">Max Heart Rate </label>
+        <input type="text" id="thalach" name="thalach" placeholder="A number in range [71-202] bpm"><br>
+       </div>
+
+       <div class="input_field">
+        <label for="exang">Exercise-induced Angina</label>
+        <select id="exang" name="exang">
+          <option selected>----select option----</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select><br>
+       </div>
+
+       <div class="input_field">
+        <label for="oldpeak">ST depression</label>
+        <input type="text" id="oldpeak" name="oldpeak" placeholder="ST depression, typically in [0-6.2]"><br>
+       </div>
+
+       <div class="input_field">
+        <label for="slope">slope of the peak exercise ST segment</label>
+        <select id="slope" name="slope">
+          <option selected>----select option----</option>
+          <option value="0">Upsloping</option>
+          <option value="1">Flat</option>
+          <option value="2">Downsloping</option>
+        </select><br>
+       </div>
+
+       <div class="input_field">
+        <label for="ca">Number of Major vessels</label>
+        <input type="text" id="ca" name="ca" placeholder="Typically in [0-4]"><br> 
+       </div>              
+
+       <div class="input_field">
+        <label for="thal">Thalassemia</label> 
+        <select id="thal" name="thal">
+          <option selected>----select option----</option>
+          <option value="0">Normal</option>
+          <option value="1">Fixed Defect</option> 
+          <option value="2">Reversible Defect</option>  
+        </select><br>
+       </div>
+
+      </div> 
+        <div class="input_field">  
+          <p style="text-align: center;">
+         <input type="submit" class="btn btn-lg btn-primary o_default_snippet_text" style="color:black; background: skyblue;" id="submit" value="PREDICT">  
+        </P>
+       </div>  
+        
+      
+   </div>  
+ </form> 
+ <footer id="bottom" data-anchor="true" data-name="Footer" class="o_footer o_colored_level o_cc ">
+  <div id="footer" class="oe_structure oe_structure_solo">
+<section class="s_text_block" data-snippet="s_text_block" data-name="Text">
+<div class="container">
+  <div class="row align-items-center">
+      <div class="col-lg-2 pt16 pb16 o_colored_level">
+          <a href="/" class="o_footer_logo logo" data-bs-original-title="" title="">
+              <img src="https://cardiotech1.odoo.com/web/image/284-c0ca9715/Screenshot%20%2834%29.webp" alt="" class="img-fluid mx-auto img o_we_custom_image" data-mimetype="image/webp" data-original-id="283" data-original-src="/web/image/283-eb66b129/Screenshot%20%2834%29.png" data-mimetype-before-conversion="image/png" data-resize-width="569" loading="lazy"/>
+          </a>
+      </div>
+      <div class="col-lg-5 d-flex align-items-center justify-content-center justify-content-lg-start pt16 pb16 o_colored_level">
+          <ul class="list-inline mb-0 ms-3">
+              <li class="list-inline-item"><a href="/">Home</a></li>
+              <li class="list-inline-item"><a href="/">About us</a></li>
+              
+          </ul>
+      </div>
+      
+      <div class="col-lg-2 pt16 pb16">
+          <a href="/contactus" class="btn btn-block btn-primary">Get in touch</a>
+      </div>
+  </div>
+</div>
+</section>
+</div>
+<div class="o_footer_copyright o_colored_level o_cc" data-name="Copyright">
+      <div class="container py-3">
+          <div class="row">
+              <div class="col-sm text-center text-sm-start text-muted">
+                  <span class="o_footer_copyright_name me-2">Copyright © Cardio Tech</span>
+
+
+</div>
+          </div>
+      </div>
+  </div>
+</footer> 
+ </body>  
+ </html>

@@ -10,11 +10,11 @@ model = pickle.load(open(filename, 'rb'))
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/index.html')
 def home():
 	return render_template('index.html')
 
-@app.route('/f')
+@app.route('/form.html')
 def form():
     return render_template('form.html')
 
